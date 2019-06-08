@@ -1,0 +1,74 @@
+﻿<Window x:Class="SD240_CalcProject.ConversionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SD240_CalcProject"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid Background="#FF515151">
+        <Grid Margin="40,26,707,248">
+            <Button VerticalAlignment="Top" Click="Button_Click_ProgrammerConversions">
+                <Button.Content>
+                    <Bold>0 1</Bold>
+                </Button.Content>
+            </Button>
+            <Button VerticalAlignment="Top" Margin="0,20,0,0" Click="Button_Click_PercentConversions">
+                <Button.Content>
+                    <Bold>%</Bold>
+                </Button.Content>
+            </Button>
+            <Button VerticalAlignment="Top" Margin="0,40,0,0" Click="Button_Click_WeightConversions">
+                <Button.Content>
+                    <Bold>Kg</Bold>
+                </Button.Content>
+            </Button>
+            <Button VerticalAlignment="Top" Margin="0,60,0,0" Click="Button_Click_TemperatureConversions">
+                <Button.Content>
+                    <Bold>°C</Bold>
+                </Button.Content>
+            </Button>
+            <Button VerticalAlignment="Top" Margin="0,80,0,0" Click="Button_Click_LengthConversions">
+                <Button.Content>
+                    <Bold>mm</Bold>
+                </Button.Content>
+            </Button>
+            <Button VerticalAlignment="Top" Margin="0,100,0,0" Click="Button_Click_FileSizeConversions">
+                <Button.Content>
+                    <Bold>GB</Bold>
+                </Button.Content>
+            </Button>
+            <Button VerticalAlignment="Top" Margin="0,120,0,0" Click="Button_Click_TimeConversions">
+                <Button.Content>
+                    <Bold>Time</Bold>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Grid Margin="60,0,0,0">
+            <Grid Name="Group1">
+                <TextBlock HorizontalAlignment="Left" Margin="40,30,0,0" TextWrapping="Wrap" Text="BoxGroup1" VerticalAlignment="Top" Height="20" Width="65" Name="TextLabel1"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="125,27,0,0" TextWrapping="Wrap" Text="TextBox1" VerticalAlignment="Top" Width="255" Name="TextOutput1"/>
+            </Grid>
+            <Grid Name="Group2">
+                <TextBlock HorizontalAlignment="Left" Margin="40,60,0,0" TextWrapping="Wrap" Text="BoxGroup2" VerticalAlignment="Top" Height="20" Width="65" Name="TextLabel2"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="125,57,0,0" TextWrapping="Wrap" Text="TextBox2" VerticalAlignment="Top" Width="255" Name="TextOutput2"/>
+            </Grid>
+            <Grid Name="Group3">
+                <TextBlock HorizontalAlignment="Left" Margin="40,90,0,0" TextWrapping="Wrap" Text="BoxGroup3" VerticalAlignment="Top" Height="20" Width="65" Name="TextLabel3"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="125,87,0,0" TextWrapping="Wrap" Text="TextBox3" VerticalAlignment="Top" Width="255" Name="TextOutput3"/>
+            </Grid>
+            <Grid Name="Group4">
+                <TextBlock HorizontalAlignment="Left" Margin="40,120,0,0" TextWrapping="Wrap" Text="BoxGroup4" VerticalAlignment="Top" Height="20" Width="65" Name="TextLabel4"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="125,117,0,0" TextWrapping="Wrap" Text="TextBox4" VerticalAlignment="Top" Width="255" Name="TextOutput4"/>
+            </Grid>
+            <Grid Name="Group5">
+                <TextBlock HorizontalAlignment="Left" Margin="40,150,0,0" TextWrapping="Wrap" Text="BoxGroup5" VerticalAlignment="Top" Height="20" Width="65" Name="TextLabel5"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="125,147,0,0" TextWrapping="Wrap" Text="TextBox5" VerticalAlignment="Top" Width="255" Name="TextOutput5"/>
+            </Grid>
+            <Grid Name="Group6">
+                <TextBlock HorizontalAlignment="Left" Margin="40,180,0,0" TextWrapping="Wrap" Text="BoxGroup6" VerticalAlignment="Top" Height="20" Width="65" Name="TextLabel6"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="125,177,0,0" TextWrapping="Wrap" Text="TextBox6" VerticalAlignment="Top" Width="255" Name="TextOutput6"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

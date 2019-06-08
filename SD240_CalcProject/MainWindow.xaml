@@ -6,104 +6,176 @@
         xmlns:local="clr-namespace:SD240_CalcProject"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="581.4" Width="458">
-    <Grid>
-        <TextBox IsReadOnly="True" TextAlignment="Right" MaxLength="32" Name="InputBox" FontSize="30" HorizontalAlignment="Left" Margin="20,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="300" RenderTransformOrigin="0.5,-0.214"/>
-        <TextBox IsReadOnly="True" TextAlignment="Right" MaxLength="32" x:Name="OperationBox" FontSize="30" HorizontalAlignment="Left" Margin="20,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="300" RenderTransformOrigin="0.5,-0.214"/>
-        
-        <Button Content="4" HorizontalAlignment="Left" Margin="81,346,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="58" Click="Button_Click_4"/>
-        <Button Content="7" HorizontalAlignment="Left" Margin="81,280,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_7"/>
-        <Button Content="1" HorizontalAlignment="Left" Margin="81,410,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_1"/>
-        <Button Content="0" HorizontalAlignment="Left" Margin="142,476,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="59" Click="Button_Click_0"/>
-        <Button Content="8" HorizontalAlignment="Left" Margin="142,280,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_8"/>
-        <Button Content="5" HorizontalAlignment="Left" Margin="142,346,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="58" Click="Button_Click_5"/>
-        <Button Content="2" HorizontalAlignment="Left" Margin="142,410,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_2"/>
-        <Button Content="9" HorizontalAlignment="Left" Margin="203,280,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_9"/>
-        <Button Content="6" HorizontalAlignment="Left" Margin="203,346,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="58" Click="Button_Click_6"/>
-        <Button Content="3" HorizontalAlignment="Left" Margin="203,410,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_3"/>
-        
-        <!--<Button HorizontalAlignment="Left" Margin="20,476,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="59" Click="Button_Click_LeftParen">
-            <Button.Content>
-                <Bold>(</Bold>
-            </Button.Content>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="81,476,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="59" Click="Button_Click_RightParen">
-            <Button.Content>
-                <Bold>)</Bold>
-            </Button.Content>
-        </Button>-->
-        <Button HorizontalAlignment="Left" Margin="203,476,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="59">
-            <Button.Content>
-                <Bold>.</Bold>
-            </Button.Content>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="20,346,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="58" Click="Button_Click_SquareRoot">
-            <Button.Content>
-                <fa:IconBlock Icon="SquareRootAlt" Foreground="Black"/>
-            </Button.Content>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="20,280,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Factorial">
-            <Button.Content>
-                <Bold>n!</Bold>
-            </Button.Content>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="20,410,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Negate">
-            <Button.Content>
-                <Bold>+/-</Bold>
-            </Button.Content>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="264,280,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Multiply">
-            <Button.Content>
-                <fa:IconBlock Icon="Times" Foreground="Black"/>
-            </Button.Content>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="264,346,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="58" Click="Button_Click_Minus">
-            <Button.Content>
-                <fa:IconBlock Icon="Minus" Foreground="Black"/>
-            </Button.Content>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="264,410,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Plus">
-            <Button.Content>
-                <fa:IconBlock Icon="Plus" Foreground="Black"/>
-            </Button.Content>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="264,476,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="59" Click="Button_Click_Equals">
-            <Button.Content>
-                <fa:IconBlock Icon="Equals" Foreground="Black"/>
-            </Button.Content>
-        </Button>
-        <Button Name="clear_button" HorizontalAlignment="Left" Margin="142,215,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Clear">
-            <Button.Content>
-                <Bold>Clear</Bold>
-            </Button.Content>
-        </Button>
-        <Button Name="backspace_button" HorizontalAlignment="Left" Margin="203,215,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Backspace">
-            <Button.Content>
-                <fa:IconBlock Icon="Backspace" Foreground="Black"/>
-            </Button.Content>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="20,215,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60">
-            <Button.Content>
-                <Bold>𝒙ʸ</Bold>
-            </Button.Content>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="264,215,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Divide">
-            <Button.Content>
-                <fa:IconBlock Icon="Divide" Foreground="Black"/>
-            </Button.Content>
-        </Button>
-        <Button x:Name="clear_button_Copy" Content="PLC" HorizontalAlignment="Left" Margin="142,150,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Clear"/>
-        <Button x:Name="backspace_button_Copy" Content="PLC" HorizontalAlignment="Left" Margin="203,150,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Backspace"/>
-        <Button Content="PLC" HorizontalAlignment="Left" Margin="81,215,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60"/>
-        <Button Content="PLC" HorizontalAlignment="Left" Margin="81,150,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60"/>
-        <Button Content="PLC" HorizontalAlignment="Left" Margin="20,150,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60"/>
-        <Button HorizontalAlignment="Left" Margin="264,150,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Modulus">
-            <Button.Content>
-                <Bold>
-                    Mod
-                </Bold>
-            </Button.Content>
-        </Button>
+        Title="MainWindow"  Width="820" Height="581">
+    <!--Height="581" Width="357" also 820-->
+    <Grid Background="#FF515151" Width="Auto" Height="550">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <!--<Grid Margin="0,0,331,0">
+        </Grid>-->
+        <Grid Margin="20,0,20,0" Height="535" VerticalAlignment="Top" Grid.RowSpan="8">
+            <TextBox IsReadOnly="True" TextAlignment="Right" MaxLength="32" Name="InputBox" FontSize="30" HorizontalAlignment="Left" Margin="0,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="100" Width="300" RenderTransformOrigin="0.5,-0.214"/>
+            <TextBox IsReadOnly="True" TextAlignment="Right" MaxLength="32" x:Name="OperationBox" FontSize="30" HorizontalAlignment="Left" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="85" Width="300" RenderTransformOrigin="0.5,-0.214"/>
 
+            <Button Content="4" HorizontalAlignment="Left" Margin="61,345,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_4"/>
+            <Button Content="7" HorizontalAlignment="Left" Margin="61,280,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_7"/>
+            <Button Content="1" HorizontalAlignment="Left" Margin="61,410,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_1"/>
+            <Button Content="0" HorizontalAlignment="Left" Margin="122,476,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_0"/>
+            <Button Content="8" HorizontalAlignment="Left" Margin="122,280,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_8"/>
+            <Button Content="5" HorizontalAlignment="Left" Margin="122,345,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_5"/>
+            <Button Content="2" HorizontalAlignment="Left" Margin="122,410,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_2"/>
+            <Button Content="9" HorizontalAlignment="Left" Margin="183,280,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_9"/>
+            <Button Content="6" HorizontalAlignment="Left" Margin="183,345,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_6"/>
+            <Button Content="3" HorizontalAlignment="Left" Margin="183,410,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_3"/>
+
+            <Button HorizontalAlignment="Left" Margin="183,476,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Decimal">
+                <Button.Content>
+                    <Bold>.</Bold>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="0,345,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_SquareRoot">
+                <Button.Content>
+                    <fa:IconBlock Icon="SquareRootAlt" Foreground="Black"/>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="0,280,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Factorial">
+                <Button.Content>
+                    <Bold>n!</Bold>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="0,410,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Negate">
+                <Button.Content>
+                    <Bold>+/-</Bold>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="244,280,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Multiply">
+                <Button.Content>
+                    <fa:IconBlock Icon="Times" Foreground="Black"/>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="244,345,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Minus">
+                <Button.Content>
+                    <fa:IconBlock Icon="Minus" Foreground="Black"/>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="244,410,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Plus">
+                <Button.Content>
+                    <fa:IconBlock Icon="Plus" Foreground="Black"/>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="244,476,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Equals">
+                <Button.Content>
+                    <fa:IconBlock Icon="Equals" Foreground="Black"/>
+                </Button.Content>
+            </Button>
+            <Button Name="clear_button" HorizontalAlignment="Left" Margin="122,215,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Clear">
+                <Button.Content>
+                    <Bold>Clear</Bold>
+                </Button.Content>
+            </Button>
+            <Button Name="backspace_button" HorizontalAlignment="Left" Margin="183,215,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Backspace">
+                <Button.Content>
+                    <fa:IconBlock Icon="Backspace" Foreground="Black"/>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Exponent">
+                <Button.Content>
+                    <Bold>𝒙ʸ</Bold>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="244,215,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Divide">
+                <Button.Content>
+                    <fa:IconBlock Icon="Divide" Foreground="Black"/>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="61,215,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_Modulus">
+                <Button.Content>
+                    <Bold>
+                        Mod
+                    </Bold>
+                </Button.Content>
+            </Button>
+            <Button Content="Convertions" HorizontalAlignment="Left" Margin="0,476,0,-1" VerticalAlignment="Top" Width="117" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_ConvertionWindow"/>
+        </Grid>
+
+        <Grid Background="#FF515151" Margin="325,0,0,0" HorizontalAlignment="Left" Width="480"  Name="ConversionBox" Visibility="Visible" Grid.RowSpan="9">
+            <Grid Margin="0,10,423,15" Width="56">
+                <Button VerticalAlignment="Top" Height="60" Width="56" Click="Button_Click_IntiateConversions" Margin="0,10,0,0">
+                    <Bold>
+                        Convert
+                    </Bold>
+                </Button>
+                <Button VerticalAlignment="Top" Height="60" Width="56" Click="Button_Click_ProgrammerConversions" Margin="0,75,0,0">
+                    <Button.Content>
+                        <Bold>0 1</Bold>
+                    </Button.Content>
+                </Button>
+                <Button VerticalAlignment="Top" Height="60" Width="56" Margin="0,140,0,0" Click="Button_Click_PercentConversions">
+                    <Button.Content>
+                        <Bold>%</Bold>
+                    </Button.Content>
+                </Button>
+                <Button VerticalAlignment="Top" Height="60" Width="56" Margin="0,270,0,0" Click="Button_Click_WeightConversions">
+                    <Button.Content>
+                        <Bold>Kg</Bold>
+                    </Button.Content>
+                </Button>
+                <Button VerticalAlignment="Top" Height="60" Width="56" Margin="0,205,0,0" Click="Button_Click_TemperatureConversions">
+                    <Button.Content>
+                        <Bold>°C</Bold>
+                    </Button.Content>
+                </Button>
+                <Button VerticalAlignment="Top" Height="60" Width="56" Margin="0,335,0,0" Click="Button_Click_LengthConversions">
+                    <Button.Content>
+                        <Bold>mm</Bold>
+                    </Button.Content>
+                </Button>
+                <Button VerticalAlignment="Top" Height="60" Width="56" Margin="0,400,0,0" Click="Button_Click_FileSizeConversions">
+                    <Button.Content>
+                        <Bold>GB</Bold>
+                    </Button.Content>
+                </Button>
+                <Button VerticalAlignment="Top" Height="60" Width="56" Margin="0,466,0,-1" Click="Button_Click_TimeConversions">
+                    <Button.Content>
+                        <Bold>Time</Bold>
+                    </Button.Content>
+                </Button>
+            </Grid>
+            <Grid Margin="60,0,0,0">
+                <Grid Name="Group1">
+                    <TextBlock HorizontalAlignment="Left" Margin="25,30,0,0" TextWrapping="Wrap" Text="BoxGroup1" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel1"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="125,27,0,0" TextWrapping="Wrap" Text="TextBox1" VerticalAlignment="Top" Width="255" Name="TextOutput1" GotFocus="SetActiveOutput" MaxLength="38" />
+                </Grid>
+                <Grid Name="Group2">
+                    <TextBlock HorizontalAlignment="Left" Margin="25,60,0,0" TextWrapping="Wrap" Text="BoxGroup2" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel2"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="125,57,0,0" TextWrapping="Wrap" Text="TextBox2" VerticalAlignment="Top" Width="255" Name="TextOutput2" GotFocus="SetActiveOutput" MaxLength="38"/>
+                </Grid>
+                <Grid Name="Group3">
+                    <TextBlock HorizontalAlignment="Left" Margin="25,90,0,0" TextWrapping="Wrap" Text="BoxGroup3" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel3"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="125,87,0,0" TextWrapping="Wrap" Text="TextBox3" VerticalAlignment="Top" Width="255" Name="TextOutput3" GotFocus="SetActiveOutput" MaxLength="38"/>
+                </Grid>
+                <Grid Name="Group4">
+                    <TextBlock HorizontalAlignment="Left" Margin="25,120,0,0" TextWrapping="Wrap" Text="BoxGroup4" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel4"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="125,117,0,0" TextWrapping="Wrap" Text="TextBox4" VerticalAlignment="Top" Width="255" Name="TextOutput4" GotFocus="SetActiveOutput" MaxLength="38"/>
+                </Grid>
+                <Grid Name="Group5">
+                    <TextBlock HorizontalAlignment="Left" Margin="25,150,0,0" TextWrapping="Wrap" Text="BoxGroup5" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel5"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="125,147,0,0" TextWrapping="Wrap" Text="TextBox5" VerticalAlignment="Top" Width="255" Name="TextOutput5" GotFocus="SetActiveOutput" MaxLength="38"/>
+                </Grid>
+                <Grid Name="Group6">
+                    <TextBlock HorizontalAlignment="Left" Margin="25,180,0,0" TextWrapping="Wrap" Text="BoxGroup6" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel6"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="125,177,0,0" TextWrapping="Wrap" Text="TextBox6" VerticalAlignment="Top" Width="255" Name="TextOutput6" GotFocus="SetActiveOutput" MaxLength="38"/>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
