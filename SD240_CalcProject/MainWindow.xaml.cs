@@ -331,7 +331,7 @@ namespace SD240_CalcProject
         }
         private bool InputBoxIsNotEmpty(TextBox inputBox)
         {
-            if (!String.IsNullOrEmpty(InputBox.Text) && !String.IsNullOrWhiteSpace(InputBox.Text))
+            if (!String.IsNullOrEmpty(inputBox.Text) && !String.IsNullOrWhiteSpace(inputBox.Text))
                 return true;
             else
                 return false;
@@ -385,39 +385,6 @@ namespace SD240_CalcProject
                 ProgrammerConversions("4", "101203", "123123", "7");
                 Application.Current.MainWindow.Width = 820;
             }
-
-            //var x = new ConversionWindow(InputBox.Text);
-            //x.Show();
-            //OperationBox.Visibility = Visibility.Hidden;
-
-            // Int -> Hex, Octal, Binary
-            int integer = 1;
-            var Hex = int.Parse(integer.ToString(), System.Globalization.NumberStyles.HexNumber);
-            var Octal = Convert.ToString(integer, 8);
-            var Binary = Convert.ToString(integer, 2);
-
-            // % -> Decimal -> %
-            // 10 -> 1000%; 0.1 -> 10%; 1 -> 100%
-
-            // mg, g, kg -> ounces, pounds
-            // 1mg = 0.001g
-            // 1g = 0.001kg
-
-            // Celsius -> Fahrienheit -> Kelvin
-            // C -> F | (0°C × 9 / 5) +32 = 32°F 
-            // C -> K |  0°C + 273.15 = 273.15K
-            // F -> C | (0°F − 32) × 5/9
-            // F -> K | (0K − 273.15) × 9/5 + 32 
-            // K -> C |  0K − 273.15 = -273.1°C
-            // K -> F | (0K − 273.15) × 9/5 + 32 = -459.7°F
-
-            // mm, cm, m, km -> inches, feet
-            // 1mm = 0.01cm
-            // 1cm = 0.01m
-            // 1m  = 0.01km
-
-            // B, KB, MB, GB, TB
-            // Hours -> Minutes -> Seconds
         }
 
 
@@ -433,6 +400,7 @@ namespace SD240_CalcProject
             // Determine which conversion we're on,
             switch (CurrentConversionType)
             {
+                // == PROGRAMER ==
                 case ConversionTypes.Programmer:
                     var prog = new Programmer();
                     // get input value
@@ -527,10 +495,15 @@ namespace SD240_CalcProject
                             break;
 
                         default:
+                            TextOutput1.Text = "NaN";
+                            TextOutput2.Text = "NaN";
+                            TextOutput3.Text = "NaN";
+                            TextOutput4.Text = "NaN";
                             break;
                     }
                     break;
 
+                // == PERCENT ==
                 case ConversionTypes.Percent:
                     var percent = new Percent();
                     switch (CurrentActiveOutput)
@@ -570,10 +543,13 @@ namespace SD240_CalcProject
                             break;
 
                         default:
+                            TextOutput1.Text = "NaN";
+                            TextOutput2.Text = "NaN";
                             break;
                     }
                     break;
 
+                // == WEIGHT ==
                 case ConversionTypes.Weight:
                     var weight = new Weight();
                     switch (CurrentActiveOutput)
@@ -584,8 +560,8 @@ namespace SD240_CalcProject
                             try
                             {
                                 double milligrams = double.Parse(weight.Milligrams);
-                                weight.Grams = (milligrams * 1000).ToString();
-                                weight.Kilograms = (milligrams * 10000).ToString();
+                                weight.Grams = (milligrams * 0.001).ToString();
+                                weight.Kilograms = (milligrams * 0.000001).ToString();
                                 weight.Ounces = (milligrams * 0.000035).ToString();
                                 weight.Pounds = (milligrams * 0.000002).ToString();
 
@@ -608,10 +584,10 @@ namespace SD240_CalcProject
                             try
                             {
                                 double grams = double.Parse(weight.Grams);
-                                weight.Milligrams = (grams / 1000).ToString();
-                                weight.Kilograms = (grams * 1000).ToString();
-                                weight.Ounces = (grams * 0.0035274).ToString();
-                                weight.Pounds = (grams * 0.0002205).ToString();
+                                weight.Milligrams = (grams * 1000).ToString();
+                                weight.Kilograms = (grams / 1000).ToString();
+                                weight.Ounces = (grams * 0.035274).ToString();
+                                weight.Pounds = (grams * 0.002205).ToString();
 
                                 // Set the values
                                 TextOutput1.Text = weight.Milligrams;
@@ -631,11 +607,11 @@ namespace SD240_CalcProject
                             // get other values
                             try
                             {
-                                double grams = double.Parse(weight.Grams);
-                                weight.Milligrams = (grams / 1000).ToString();
-                                weight.Kilograms = (grams * 1000).ToString();
-                                weight.Ounces = (grams * 0.0035274).ToString();
-                                weight.Pounds = (grams * 0.0002205).ToString();
+                                double kilograms = double.Parse(weight.Kilograms);
+                                weight.Milligrams = (kilograms * 1000000).ToString();
+                                weight.Grams = (kilograms * 1000).ToString();
+                                weight.Ounces = (kilograms * 35.27396).ToString();
+                                weight.Pounds = (kilograms * 2.204623).ToString();
 
                                 // Set the values
                                 TextOutput1.Text = weight.Milligrams;
@@ -655,11 +631,11 @@ namespace SD240_CalcProject
                             // get other values
                             try
                             {
-                                double milligrams = double.Parse(weight.Milligrams);
-                                weight.Grams = (milligrams * 1000).ToString();
-                                weight.Kilograms = (milligrams * 10000).ToString();
-                                weight.Ounces = (milligrams * 0.000035).ToString();
-                                weight.Pounds = (milligrams * 0.000002).ToString();
+                                double ounces = double.Parse(weight.Ounces);
+                                weight.Milligrams = (ounces * 28349.52).ToString();
+                                weight.Grams = (ounces * 28.34952).ToString();
+                                weight.Kilograms = (ounces * 0.02835).ToString();
+                                weight.Pounds = (ounces * 0.0625).ToString();
 
                                 // Set the values
                                 TextOutput1.Text = weight.Milligrams;
@@ -678,11 +654,11 @@ namespace SD240_CalcProject
                             // get other values
                             try
                             {
-                                double milligrams = double.Parse(weight.Milligrams);
-                                weight.Grams = (milligrams / 1000).ToString();
-                                weight.Kilograms = (milligrams / 10000).ToString();
-                                weight.Ounces = (milligrams * 0.000035).ToString();
-                                weight.Pounds = (milligrams * 0.000002).ToString();
+                                double pounds = double.Parse(weight.Pounds);
+                                weight.Milligrams = (pounds * 453592.4).ToString();
+                                weight.Grams = (pounds * 453.5924).ToString();
+                                weight.Kilograms = (pounds * 0.4535924).ToString();
+                                weight.Ounces = (pounds * 16).ToString();
 
                                 // Set the values
                                 TextOutput1.Text = weight.Milligrams;
@@ -698,31 +674,477 @@ namespace SD240_CalcProject
                             break;
 
                         default:
+                            TextOutput1.Text = "NaN";
+                            TextOutput2.Text = "NaN";
+                            TextOutput3.Text = "NaN";
+                            TextOutput4.Text = "NaN";
+                            TextOutput5.Text = "NaN";
                             break;
                     }
                     break;
 
+                // == TEMPERATURE ==
                 case ConversionTypes.Temperature:
                     var temp = new Temperature();
+                    switch (CurrentActiveOutput)
+                    {
+                        case ActiveOutput.TextOutput1:
+                            temp.Celsius = TextOutput1.Text;
+                            // get other values
+                            try
+                            {
+                                double celsius = double.Parse(temp.Celsius);
+                                temp.Fahrenheit = ((celsius * 9 / 5) + 32).ToString();
+                                temp.Kelvin = (celsius + 273.15).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = temp.Celsius;
+                                TextOutput2.Text = temp.Fahrenheit;
+                                TextOutput3.Text = temp.Kelvin;
+                            }
+                            catch
+                            {
+                                TextOutput1.Text = "NaN";
+                            }
+                            break;
+                        case ActiveOutput.TextOutput2:
+                            temp.Fahrenheit = TextOutput2.Text;
+                            // get other values
+                            try
+                            {
+                                double fahrenheit = double.Parse(temp.Fahrenheit);
+                                temp.Celsius = ((fahrenheit - 32) * 5 / 9).ToString();
+                                temp.Kelvin = ((fahrenheit - 32) * 5 / 9 + 273.15).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = temp.Celsius;
+                                TextOutput2.Text = temp.Fahrenheit;
+                                TextOutput3.Text = temp.Kelvin;
+                            }
+                            catch
+                            {
+                                TextOutput2.Text = "NaN";
+                            }
+                            break;
+                        case ActiveOutput.TextOutput3:
+                            temp.Kelvin = TextOutput3.Text;
+                            // get other values
+                            try
+                            {
+                                double kelvin = double.Parse(temp.Kelvin);
+                                temp.Celsius = (kelvin - 273.15).ToString();
+                                temp.Fahrenheit = ((kelvin - 273.15) * 9 / 5 + 32).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = temp.Celsius;
+                                TextOutput2.Text = temp.Fahrenheit;
+                                TextOutput3.Text = temp.Kelvin;
+                            }
+                            catch
+                            {
+                                TextOutput3.Text = "NaN";
+                            }
+                            break;
+                        default:
+                            TextOutput1.Text = "NaN";
+                            TextOutput2.Text = "NaN";
+                            TextOutput3.Text = "NaN";
+                            break;
+                    }
                     break;
 
+                // == LENGTH ==
                 case ConversionTypes.Length:
                     var length = new Length();
+                    switch (CurrentActiveOutput)
+                    {
+                        case ActiveOutput.TextOutput1:
+                            length.Millimeter = TextOutput1.Text;
+                            // get other values
+                            try
+                            { // mm cm m km inches feet
+                                double millimeter = double.Parse(length.Millimeter);
+                                length.Centimeter = (millimeter * 0.1).ToString();
+                                length.Meter = (millimeter * 0.001).ToString();
+                                length.Kilometer = (millimeter * 0.000001).ToString();
+                                length.Inches = (millimeter * 0.0393701).ToString();
+                                length.Feet = (millimeter * 0.00328084).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = length.Millimeter;
+                                TextOutput2.Text = length.Centimeter;
+                                TextOutput3.Text = length.Meter;
+                                TextOutput4.Text = length.Kilometer;
+                                TextOutput5.Text = length.Inches;
+                                TextOutput6.Text = length.Feet;
+
+                            }
+                            catch
+                            {
+                                TextOutput1.Text = "NaN";
+                            }
+                            break;
+
+                        case ActiveOutput.TextOutput2:
+                            length.Centimeter = TextOutput2.Text;
+                            // get other values
+                            try
+                            {
+                                double centimeter = double.Parse(length.Centimeter);
+                                length.Millimeter = (centimeter * 10).ToString();
+                                length.Meter = (centimeter * 0.01).ToString();
+                                length.Kilometer = (centimeter * 0.00001).ToString();
+                                length.Inches = (centimeter * 0.393701).ToString();
+                                length.Feet = (centimeter * 0.0328084).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = length.Millimeter;
+                                TextOutput2.Text = length.Centimeter;
+                                TextOutput3.Text = length.Meter;
+                                TextOutput4.Text = length.Kilometer;
+                                TextOutput5.Text = length.Inches;
+                                TextOutput6.Text = length.Feet;
+
+                            }
+                            catch
+                            {
+                                TextOutput2.Text = "NaN";
+                            }
+                            break;
+
+                        case ActiveOutput.TextOutput3:
+                            length.Meter = TextOutput3.Text;
+                            // get other values
+                            try
+                            {
+                                double meter = double.Parse(length.Meter);
+                                length.Millimeter = (meter * 1000).ToString();
+                                length.Centimeter = (meter * 100).ToString();
+                                length.Kilometer = (meter * 0.001).ToString();
+                                length.Inches = (meter * 39.3701).ToString();
+                                length.Feet = (meter * 3.28084).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = length.Millimeter;
+                                TextOutput2.Text = length.Centimeter;
+                                TextOutput3.Text = length.Meter;
+                                TextOutput4.Text = length.Kilometer;
+                                TextOutput5.Text = length.Inches;
+                                TextOutput6.Text = length.Feet;
+
+                            }
+                            catch
+                            {
+                                TextOutput3.Text = "NaN";
+                            }
+                            break;
+
+                        case ActiveOutput.TextOutput4:
+                            length.Kilometer = TextOutput4.Text;
+                            // get other values
+                            try
+                            {
+                                double kilometer = double.Parse(length.Kilometer);
+                                length.Millimeter = (kilometer * 1000000).ToString();
+                                length.Centimeter = (kilometer * 100000).ToString();
+                                length.Meter = (kilometer * 1000).ToString();
+                                length.Inches = (kilometer * 39370.1).ToString();
+                                length.Feet = (kilometer * 3280.84).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = length.Millimeter;
+                                TextOutput2.Text = length.Centimeter;
+                                TextOutput3.Text = length.Meter;
+                                TextOutput4.Text = length.Kilometer;
+                                TextOutput5.Text = length.Inches;
+                                TextOutput6.Text = length.Feet;
+
+                            }
+                            catch
+                            {
+                                TextOutput4.Text = "NaN";
+                            }
+                            break;
+                        case ActiveOutput.TextOutput5:
+                            length.Inches = TextOutput5.Text;
+                            // get other values
+                            try
+                            {
+                                double inches = double.Parse(length.Inches);
+                                length.Millimeter = (inches * 25.4).ToString();
+                                length.Centimeter = (inches * 2.54).ToString();
+                                length.Meter = (inches * 0.0254).ToString();
+                                length.Kilometer = (inches * 0.0000254).ToString();
+                                length.Feet = (inches * 0.0833333).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = length.Millimeter;
+                                TextOutput2.Text = length.Centimeter;
+                                TextOutput3.Text = length.Meter;
+                                TextOutput4.Text = length.Kilometer;
+                                TextOutput5.Text = length.Inches;
+                                TextOutput6.Text = length.Feet;
+
+                            }
+                            catch
+                            {
+                                TextOutput5.Text = "NaN";
+                            }
+                            break;
+                        case ActiveOutput.TextOutput6:
+                            length.Feet = TextOutput6.Text;
+                            // get other values
+                            try
+                            {
+                                double feet = double.Parse(length.Feet);
+                                length.Millimeter = (feet * 304.8).ToString();
+                                length.Centimeter = (feet * 30.48).ToString();
+                                length.Meter = (feet * 0.3048).ToString();
+                                length.Kilometer = (feet * 0.0003048).ToString();
+                                length.Inches = (feet * 12).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = length.Millimeter;
+                                TextOutput2.Text = length.Centimeter;
+                                TextOutput3.Text = length.Meter;
+                                TextOutput4.Text = length.Kilometer;
+                                TextOutput5.Text = length.Inches;
+                                TextOutput6.Text = length.Feet;
+
+                            }
+                            catch
+                            {
+                                TextOutput6.Text = "NaN";
+                            }
+                            break;
+
+                        default:
+                            TextOutput1.Text = "NaN";
+                            TextOutput2.Text = "NaN";
+                            TextOutput3.Text = "NaN";
+                            TextOutput4.Text = "NaN";
+                            TextOutput5.Text = "NaN";
+                            TextOutput6.Text = "NaN";
+                            break;
+                    }
                     break;
 
+                // == DATA ==
                 case ConversionTypes.Data:
                     var data = new Data();
+                    switch (CurrentActiveOutput)
+                    {
+                        case ActiveOutput.TextOutput1:
+                            data.Bytes = TextOutput1.Text;
+                            // get other values
+                            try
+                            {
+                                double bytes = double.Parse(data.Bytes);
+                                data.Kilobytes = (bytes * 0.001).ToString();
+                                data.Megabytes = (bytes * 0.000001).ToString();
+                                data.Gigabytes = (bytes * 0.000000001).ToString();
+                                data.Terabytes = (bytes * 0.000000000001).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = data.Bytes;
+                                TextOutput2.Text = data.Kilobytes;
+                                TextOutput3.Text = data.Megabytes;
+                                TextOutput4.Text = data.Gigabytes;
+                                TextOutput5.Text = data.Terabytes;
+
+                            }
+                            catch
+                            {
+                                TextOutput1.Text = "NaN";
+                            }
+                            break;
+                        case ActiveOutput.TextOutput2:
+                            data.Kilobytes = TextOutput2.Text;
+                            // get other values
+                            try
+                            {
+                                double kilobytes = double.Parse(data.Kilobytes);
+                                data.Bytes = (kilobytes * 1000).ToString();
+                                data.Megabytes = (kilobytes * 0.001).ToString();
+                                data.Gigabytes = (kilobytes * 0.000001).ToString();
+                                data.Terabytes = (kilobytes * 0.000000001).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = data.Bytes;
+                                TextOutput2.Text = data.Kilobytes;
+                                TextOutput3.Text = data.Megabytes;
+                                TextOutput4.Text = data.Gigabytes;
+                                TextOutput5.Text = data.Terabytes;
+
+                            }
+                            catch
+                            {
+                                TextOutput2.Text = "NaN";
+                            }
+                            break;
+                        case ActiveOutput.TextOutput3:
+                            data.Megabytes = TextOutput3.Text;
+                            // get other values
+                            try
+                            {
+                                double megabytes = double.Parse(data.Megabytes);
+                                data.Bytes = (megabytes * 1000000).ToString();
+                                data.Kilobytes = (megabytes * 1000).ToString();
+                                data.Gigabytes = (megabytes * 0.001).ToString();
+                                data.Terabytes = (megabytes * 0.000001).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = data.Bytes;
+                                TextOutput2.Text = data.Kilobytes;
+                                TextOutput3.Text = data.Megabytes;
+                                TextOutput4.Text = data.Gigabytes;
+                                TextOutput5.Text = data.Terabytes;
+
+                            }
+                            catch
+                            {
+                                TextOutput3.Text = "NaN";
+                            }
+                            break;
+                        case ActiveOutput.TextOutput4:
+                            data.Gigabytes = TextOutput4.Text;
+                            // get other values
+                            try
+                            {
+                                double gigabytes = double.Parse(data.Gigabytes);
+                                data.Bytes = (gigabytes * 1000000000).ToString();
+                                data.Kilobytes = (gigabytes * 1000000).ToString();
+                                data.Megabytes = (gigabytes * 1000).ToString();
+                                data.Terabytes = (gigabytes * 0.001).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = data.Bytes;
+                                TextOutput2.Text = data.Kilobytes;
+                                TextOutput3.Text = data.Megabytes;
+                                TextOutput4.Text = data.Gigabytes;
+                                TextOutput5.Text = data.Terabytes;
+
+                            }
+                            catch
+                            {
+                                TextOutput4.Text = "NaN";
+                            }
+                            break;
+                        case ActiveOutput.TextOutput5:
+                            data.Terabytes = TextOutput5.Text;
+                            // get other values
+                            try
+                            {
+                                double terabytes = double.Parse(data.Terabytes);
+                                data.Bytes = (terabytes * 1000000000000).ToString();
+                                data.Kilobytes = (terabytes * 1000000000).ToString();
+                                data.Megabytes = (terabytes * 1000000).ToString();
+                                data.Gigabytes = (terabytes * 1000).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = data.Bytes;
+                                TextOutput2.Text = data.Kilobytes;
+                                TextOutput3.Text = data.Megabytes;
+                                TextOutput4.Text = data.Gigabytes;
+                                TextOutput5.Text = data.Terabytes;
+                            }
+                            catch
+                            {
+                                TextOutput5.Text = "NaN";
+                            }
+                            break;
+                        default:
+                            TextOutput1.Text = "NaN";
+                            TextOutput2.Text = "NaN";
+                            TextOutput3.Text = "NaN";
+                            TextOutput4.Text = "NaN";
+                            TextOutput5.Text = "NaN";
+                            break;
+                    }
                     break;
 
+                // == TIME ==
                 case ConversionTypes.Time:
                     var time = new Time();
+                    switch (CurrentActiveOutput)
+                    {
+                        case ActiveOutput.TextOutput1:
+                            time.Seconds = TextOutput1.Text;
+                            // get other values
+                            try
+                            {
+                                double seconds = double.Parse(time.Seconds);
+                                time.Minutes = (seconds * 0.0166667).ToString();
+                                time.Hours = (seconds * 0.000277778).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = time.Seconds;
+                                TextOutput2.Text = time.Minutes;
+                                TextOutput3.Text = time.Hours;
+                            }
+                            catch
+                            {
+                                TextOutput1.Text = "NaN";
+                            }
+                            break;
+
+                        case ActiveOutput.TextOutput2:
+                            time.Minutes = TextOutput2.Text;
+                            // get other values
+                            try
+                            {
+                                double minutes = double.Parse(time.Minutes);
+                                time.Seconds = (minutes * 60).ToString();
+                                time.Hours = (minutes * 0.0166667).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = time.Seconds;
+                                TextOutput2.Text = time.Minutes;
+                                TextOutput3.Text = time.Hours;
+                            }
+                            catch
+                            {
+                                TextOutput2.Text = "NaN";
+                            }
+                            break;
+
+                        case ActiveOutput.TextOutput3:
+                            time.Hours = TextOutput3.Text;
+                            // get other values
+                            try
+                            {
+                                double hours = double.Parse(time.Hours);
+                                time.Seconds = (hours * 3600).ToString();
+                                time.Minutes = (hours * 60).ToString();
+
+                                // Set the values
+                                TextOutput1.Text = time.Seconds;
+                                TextOutput2.Text = time.Minutes;
+                                TextOutput3.Text = time.Hours;
+                            }
+                            catch
+                            {
+                                TextOutput3.Text = "NaN";
+                            }
+                            break;
+
+                        default:
+                            TextOutput1.Text = "NaN";
+                            TextOutput2.Text = "NaN";
+                            TextOutput3.Text = "NaN";
+                            break;
+                    }
                     break;
 
                 default:
+                    TextOutput1.Text = "NaN";
+                    TextOutput2.Text = "NaN";
+                    TextOutput3.Text = "NaN";
+                    TextOutput4.Text = "NaN";
+                    TextOutput5.Text = "NaN";
+                    TextOutput6.Text = "NaN";
                     break;
             }
-
-
         }
 
         private void Button_Click_ProgrammerConversions(object sender, RoutedEventArgs e)
