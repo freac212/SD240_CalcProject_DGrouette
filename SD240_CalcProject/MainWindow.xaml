@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:SD240_CalcProject"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
-        Title="MainWindow"  Width="820" Height="581">
+        ResizeMode="NoResize"
+        Title="TheCalculatorOfDoom"  Width="357" Height="581">
     <!--Height="581" Width="357" also 820-->
     <Grid Background="#FF515151" Width="Auto" Height="550">
         <Grid.RowDefinitions>
@@ -107,7 +108,7 @@
             <Button Content="Convertions" HorizontalAlignment="Left" Margin="0,476,0,-1" VerticalAlignment="Top" Width="117" RenderTransformOrigin="0.657,5.162" Height="60" Click="Button_Click_ConvertionWindow"/>
         </Grid>
 
-        <Grid Background="#FF515151" Margin="325,0,0,0" HorizontalAlignment="Left" Width="480"  Name="ConversionBox" Visibility="Visible" Grid.RowSpan="9">
+        <Grid Background="#FF515151" Margin="325,0,0,0" HorizontalAlignment="Left" Width="480"  Name="ConversionBox" Visibility="Hidden" Grid.RowSpan="9">
             <Grid Margin="0,10,423,15" Width="56">
                 <Button VerticalAlignment="Top" Height="60" Width="56" Click="Button_Click_IntiateConversions" Margin="0,10,0,0">
                     <Bold>
@@ -151,30 +152,73 @@
                 </Button>
             </Grid>
             <Grid Margin="60,0,0,0">
-                <Grid Name="Group1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="107*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="71*"/>
+                    <ColumnDefinition Width="8*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Name="Group1" Grid.ColumnSpan="3" Margin="0,0,0,0.4" Grid.RowSpan="2">
                     <TextBlock HorizontalAlignment="Left" Margin="25,30,0,0" TextWrapping="Wrap" Text="BoxGroup1" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel1"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="125,27,0,0" TextWrapping="Wrap" Text="TextBox1" VerticalAlignment="Top" Width="255" Name="TextOutput1" GotFocus="SetActiveOutput" MaxLength="38" />
                 </Grid>
-                <Grid Name="Group2">
+                <Grid Name="Group2" Grid.ColumnSpan="3" Margin="0,0,0,0.4" Grid.RowSpan="2">
                     <TextBlock HorizontalAlignment="Left" Margin="25,60,0,0" TextWrapping="Wrap" Text="BoxGroup2" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel2"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="125,57,0,0" TextWrapping="Wrap" Text="TextBox2" VerticalAlignment="Top" Width="255" Name="TextOutput2" GotFocus="SetActiveOutput" MaxLength="38"/>
                 </Grid>
-                <Grid Name="Group3">
+                <Grid Name="Group3" Grid.ColumnSpan="3" Margin="0,0,0,0.4" Grid.RowSpan="2">
                     <TextBlock HorizontalAlignment="Left" Margin="25,90,0,0" TextWrapping="Wrap" Text="BoxGroup3" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel3"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="125,87,0,0" TextWrapping="Wrap" Text="TextBox3" VerticalAlignment="Top" Width="255" Name="TextOutput3" GotFocus="SetActiveOutput" MaxLength="38"/>
                 </Grid>
-                <Grid Name="Group4">
+                <Grid Name="Group4" Grid.ColumnSpan="3" Margin="0,0,0,0.4" Grid.RowSpan="2">
                     <TextBlock HorizontalAlignment="Left" Margin="25,120,0,0" TextWrapping="Wrap" Text="BoxGroup4" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel4"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="125,117,0,0" TextWrapping="Wrap" Text="TextBox4" VerticalAlignment="Top" Width="255" Name="TextOutput4" GotFocus="SetActiveOutput" MaxLength="38"/>
                 </Grid>
-                <Grid Name="Group5">
+                <Grid Name="Group5" Grid.ColumnSpan="3" Margin="0,0,0,0.4" Grid.RowSpan="2">
                     <TextBlock HorizontalAlignment="Left" Margin="25,150,0,0" TextWrapping="Wrap" Text="BoxGroup5" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel5"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="125,147,0,0" TextWrapping="Wrap" Text="TextBox5" VerticalAlignment="Top" Width="255" Name="TextOutput5" GotFocus="SetActiveOutput" MaxLength="38"/>
                 </Grid>
-                <Grid Name="Group6">
+                <Grid Name="Group6" Grid.ColumnSpan="3" Margin="0,0,0,0.4" Grid.RowSpan="2">
                     <TextBlock HorizontalAlignment="Left" Margin="25,180,0,0" TextWrapping="Wrap" Text="BoxGroup6" VerticalAlignment="Top" Height="20" Width="80" Name="TextLabel6"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="125,177,0,0" TextWrapping="Wrap" Text="TextBox6" VerticalAlignment="Top" Width="255" Name="TextOutput6" GotFocus="SetActiveOutput" MaxLength="38"/>
                 </Grid>
+
+                <TextBlock HorizontalAlignment="Left" Margin="1.2,408,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="354" Grid.Column="1"><Bold><Run Text="Tips:"/></Bold><LineBreak/><InlineUIContainer>
+                        <BulletDecorator Height="10" RenderTransformOrigin="0.5,0.5" Width="10">
+                            <BulletDecorator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </BulletDecorator.RenderTransform>
+                        </BulletDecorator>
+                    </InlineUIContainer>
+                    <Run Text="The converter can use your last input, just click any conversion option (e.g. 0 1 or Kg) with a value in the calculator input and it'll show the values."/>
+                    <LineBreak/>
+                    <Run/>
+                    <LineBreak/>
+                </TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="1.2,477,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="354" Grid.Column="1" Grid.RowSpan="2">
+                    <BulletDecorator Height="10" RenderTransformOrigin="0.5,0.5" Width="10">
+                            <BulletDecorator.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </BulletDecorator.RenderTransform>
+                        </BulletDecorator>
+                    <Run Text="You can also convert numbers on the fly! Just insert a value to convert from in any box above. (E.g. Millimeter in mm) and it'll convert to all other lengths after pressing convert! Give it a try!"/>
+                    <LineBreak/>
+                    <Run/>
+                    <LineBreak/>
+                </TextBlock>
             </Grid>
         </Grid>
     </Grid>
