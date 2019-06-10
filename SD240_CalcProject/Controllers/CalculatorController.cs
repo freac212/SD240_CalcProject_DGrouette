@@ -65,7 +65,7 @@ namespace SD240_CalcProject.Controllers
             // if input box only contains zeros(more than one) -> replace with whatever is incoming
             // Find a way to ensure no leading zeros
             // if inputbox only contains zeros, replace with incoming text
-            if (CanInsertText(InputBox))
+            if (CanInsertText(InputBox) && CanInsertText(OperationBox))
             {
                 if (InputBox.Text != "0" || text == ".")
                     InputBox.Text += text;
@@ -77,12 +77,7 @@ namespace SD240_CalcProject.Controllers
         }
         public void AddTextToInput(string text, int index)
         {
-            // if the input box is not reached char cap, and is not just a single 0 -> append new char to end
-            // if text count is only 1, and only contains a 0 -> replace the zero with whatever is incoming in text.
-            // if input box only contains zeros(more than one) -> replace with whatever is incoming
-            // Find a way to ensure no leading zeros
-            // if inputbox only contains zeros, replace with incoming text
-            if (CanInsertText(InputBox))
+            if (CanInsertText(InputBox) && CanInsertText(OperationBox))
             {
                 if (InputBox.Text != "0" || text == ".")
                     InputBox.Text = InputBox.Text.Insert(index, "text");
@@ -94,10 +89,7 @@ namespace SD240_CalcProject.Controllers
         }
         public bool CanInsertText(TextBox inputBox)
         {
-            if (inputBox.Text.Length >= 0 && inputBox.Text.Length < 20)
-                return true;
-            else
-                return false;
+            return (inputBox.Text.Length >= 0 && inputBox.Text.Length < 30) ? true : false;
         }
 
         internal string CalculateResult(string equation)
