@@ -63,6 +63,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\CalculatorController.cs" />
+    <Compile Include="Controllers\ConversionsController.cs" />
     <Compile Include="ConversionModels\Data.cs" />
     <Compile Include="ConversionModels\Length.cs" />
     <Compile Include="ConversionModels\Percent.cs" />
@@ -109,6 +111,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Content\Images\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

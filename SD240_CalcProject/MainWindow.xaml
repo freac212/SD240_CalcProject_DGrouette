@@ -7,7 +7,8 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="TheCalculatorOfDoom"  Width="357" Height="581">
+        Icon="./Content/Images/icon.png"
+        Title="The Calculator Of Doom"  Width="357" Height="581">
     <!--Height="581" Width="357" also 820-->
     <Grid Background="#FF515151" Width="Auto" Height="550">
         <Grid.RowDefinitions>
