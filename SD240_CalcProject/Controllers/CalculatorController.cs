@@ -80,7 +80,7 @@ namespace SD240_CalcProject.Controllers
             if (CanInsertText(InputBox) && CanInsertText(OperationBox))
             {
                 if (InputBox.Text != "0" || text == ".")
-                    InputBox.Text = InputBox.Text.Insert(index, "text");
+                    InputBox.Text = InputBox.Text.Insert(index, text);
                 else if (InputBox.Text.Count() == 1 && InputBox.Text == "0")
                     InputBox.Text = text;
                 else if (InputBox.Text.All(p => p == '0'))
